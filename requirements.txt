@@ -1,0 +1,8 @@
+# Client HTTP moderno con supporto HTTP/2 e timeout robusti
+httpx>=0.27.0
+
+# Caricamento delle variabili d'ambiente da file .env per lo sviluppo locale
+python-dotenv>=1.0.0
+
+# Framework per test automatizzati
+pytest>=8.0.0

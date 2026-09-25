@@ -1,0 +1,18 @@
+name: GitHub Actions Keepalive
+
+on:
+  schedule:
+    # Esegue il controllo il 1° e il 15 di ogni mese alle 06:00 UTC
+    - cron: '0 6 1,15 * *'
+  workflow_dispatch:
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prevenzione disattivazione cron dopo 60 giorni
+        uses: gautamkrishnar/keepalive-workflow@v2
