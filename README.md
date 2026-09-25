@@ -2,7 +2,6 @@
 
 Un bot in Python che monitora il portale Microsoft Careers e invia una notifica su Telegram quando viene pubblicata una nuova posizione di tirocinio (Internship).
 
----
 
 ## 📌 Perché questo progetto?
 
@@ -10,7 +9,6 @@ Volevo tenere d'occhio eventuali posizioni di stage/internship in Microsoft (in 
 
 Ho quindi creato questo script per automatizzare il controllo: il bot interroga periodicamente il portale e mi invia un messaggio su Telegram non appena viene pubblicata una nuova opportunità.
 
----
 
 ## ⚙️ Come funziona
 
@@ -20,7 +18,6 @@ Ho quindi creato questo script per automatizzare il controllo: il bot interroga 
 4. **Notifica**: se trova un annuncio nuovo, invia un messaggio su Telegram con titolo, sede e link diretto alla candidatura.
 5. **Esecuzione in cloud**: tramite GitHub Actions, lo script può girare automaticamente ogni 30 minuti senza dover tenere acceso il computer.
 
----
 
 ## 📁 Struttura del codice
 
@@ -32,7 +29,6 @@ Ho quindi creato questo script per automatizzare il controllo: il bot interroga 
 * `src/main.py`: orchestratore che collega tutti i moduli.
 * `.github/workflows/monitor.yml`: automazione per l'esecuzione periodica su GitHub Actions.
 
----
 
 ## 🚀 Configurazione e Avvio
 
