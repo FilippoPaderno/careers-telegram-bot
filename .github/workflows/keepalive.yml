@@ -2,17 +2,25 @@ name: GitHub Actions Keepalive
 
 on:
   schedule:
-    # Esegue il controllo il 1° e il 15 di ogni mese alle 06:00 UTC
-    - cron: '0 6 1,15 * *'
+    # Esegue il controllo il 1° di ogni mese alle 06:00 UTC
+    - cron: '0 6 1 * *'
   workflow_dispatch:
 
 jobs:
   keepalive:
     runs-on: ubuntu-latest
     permissions:
-      actions: write
       contents: write
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Prevenzione disattivazione cron dopo 60 giorni
-        uses: gautamkrishnar/keepalive-workflow@v2
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > .github/keepalive.txt
+          git add .github/keepalive.txt
+          git commit -m "chore: keepalive automatico per preservare il cron [skip ci]" || echo "Nessun cambiamento"
+          git push
