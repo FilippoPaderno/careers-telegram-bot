@@ -41,3 +41,6 @@ env/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Documentazione personale
+*.pdf
